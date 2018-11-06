@@ -55,8 +55,7 @@
 								<th>Issue</th>
 								<th>Date</th>
 								<th>Reg. No.</th>
-								<th>First Name</th>
-								<th>Last Name</th>
+								<th>Name</th>
 								<th>Branch</th>
 								<th>Sem</th>
 								<th>Status</th>
@@ -79,8 +78,10 @@
 									$tmp=mysqli_query($con, $tmpq);
 									while($ar=mysqli_fetch_assoc($tmp))
 									{
-										echo "<td>".$ar['fname']."</td>";
-										echo "<td>".$ar['lname']."</td>";
+										$fname=$ar['fname'];
+										$lname=$ar['lname'];
+										$name=$fname." ".$lname;
+										echo "<td>".$name."</td>";
 										echo "<td>".$ar['branch']."</td>";
 										echo "<td>".$ar['sem']."</td>";
 									}

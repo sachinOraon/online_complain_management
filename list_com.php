@@ -49,7 +49,7 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Complain ID</th>
+								<th>ID</th>
 								<th>Complain</th>
 								<th>Creation Date</th>
 								<th>Status</th>
