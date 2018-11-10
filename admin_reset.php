@@ -30,13 +30,14 @@
 	</head>
 	<body>
 		<div class="container contact-form">
-			<h1 style="display: inline">Welcome, <b><?php echo $_SESSION['username']; ?></b></h1>
+			<h2 style="display: inline">Welcome, <b><?php echo $_SESSION['username']; ?></b></h2>
 			<a href="/cms/logout.php" class="btn btn-danger btn-lg float-right" role="button">Logout</a><hr>
 			<div class="row" style="padding-left: 15%">
 				<a href="/cms/admin_viewcom.php" class="btn btn-primary btn-lg" role="button">View Complaints</a>&nbsp;
 				<a href="/cms/admin_resolve.php" class="btn btn-success btn-lg" role="button">Resolve</a>&nbsp;
 				<a href="/cms/admin_update.php" class="btn btn-info btn-lg" role="button">Update</a>&nbsp;
 				<a href="#" class="btn btn-warning btn-lg disabled" role="button">Reset User Password</a>&nbsp;
+				<button type="button" class="btn btn-danger" onclick="location.href='/cms/delete.php'">DELETE</button>&nbsp;
 				<a href="/cms/admin_panel.php" class="btn btn-primary btn-lg" role="button">Go Back</a>
 			</div><hr>
 			<div class="container" style="padding-left: 35%">
