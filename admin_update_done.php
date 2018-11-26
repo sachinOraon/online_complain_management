@@ -68,7 +68,7 @@
 					<?php $sem=$_SESSION['sem']; print "<input type=\"number\" class=\"form-control\" name=\"sem\" min=\"1\" max=\"8\" required=\"\" value=\"$sem\">";?>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-success">Update</button>
+					<button type="submit" class="btn btn-success" onclick="return confirm('Are you sure ?')">Update</button>
 				</div>
 			</form></div>
 		</div>

@@ -67,7 +67,12 @@
 									echo "<td>".$arr['cid']."</td>";
 									echo "<td>".$arr['issue']."</td>";
 									echo "<td>".$arr['cdate']."</td>";
-									echo "<td>".$arr['status']."</td>";
+									$status=$arr['status'];
+									if($status === 'Under Process')
+										echo "<td style=\"color:yellow\">".$arr['status']."</td>";
+									elseif($status === 'Issue Resolved')
+										echo "<td style=\"color:lime\">".$arr['status']."</td>";
+									else echo "<td style=\"color:red\">".$arr['status']."</td>";									
 									echo "</tr>";
 								}
 								mysqli_close($con);

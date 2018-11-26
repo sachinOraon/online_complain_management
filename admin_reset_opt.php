@@ -60,7 +60,7 @@
 					<input type="password" class="form-control" name="pass" required="">
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-success">Update</button>
+					<button type="submit" class="btn btn-success" onclick="return confirm('Are you sure ?')">Update</button>
 				</div>
 				</form>
 			</div>

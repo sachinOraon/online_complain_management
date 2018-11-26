@@ -29,7 +29,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid contact-form">
+		<div class="container contact-form">
 			<h2 style="display: inline">Welcome, <b><?php echo $_SESSION['username']; ?></b></h2>
 			<a href="/cms/logout.php" class="btn btn-danger btn-lg float-right" role="button">Logout</a><hr>
 			<div class="row" style="padding-left: 20%">
@@ -40,6 +40,8 @@
 				<button type="button" class="btn btn-danger" onclick="location.href='/cms/delete.php'">DELETE</button>&nbsp;
 				<a href="/cms/admin_panel.php" class="btn btn-primary btn-lg" role="button">Go Back</a>
 			</div><hr>
+		</div>
+		<div class="container contact-form" style="margin-top:20px">
 			<?php
 			$con=mysqli_connect("localhost", "root", "aspire", "cms");
 			$q="select cid from complain";
@@ -86,7 +88,13 @@
 										echo "<td>".$ar['branch']."</td>";
 										echo "<td>".$ar['sem']."</td>";
 									}
-									echo "<td>".$arr['status']."</td>";
+									$status=$arr['status'];
+									if($status === 'Under Process')
+										echo "<td style=\"color:yellow\">".$arr['status']."</td>";
+									elseif($status === 'Issue Resolved')
+										echo "<td style=\"color:lime\">".$arr['status']."</td>";
+									else echo "<td style=\"color:red\">".$arr['status']."</td>";
+									echo "<td><a href=\"admin_resolve_succ.php?id=".$arr['cid']."\" class=\"btn btn-primary\" role=\"button\">Update</a></td>";
 									echo "</tr>";
 								}
 								
@@ -96,6 +104,5 @@
 			mysqli_close($con);
 			?>
 		</div>
-
 	</body>
 </html>

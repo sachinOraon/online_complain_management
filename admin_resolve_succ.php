@@ -48,11 +48,18 @@
 			<?php
 			$con=mysqli_connect("localhost", "root", "aspire", "cms");
 			$id=$_SESSION['cid'];
-			$q="select subject, issue, cdate, reg_no, status from complain where cid='$id'";
+			$gid=$_GET['id'];
+			if(isset($gid))
+			{
+				$id=$gid;
+				$_SESSION['cid']=$id;
+			}
+			$q="select * from complain where cid='$id'";
 			$res=mysqli_query($con, $q);
 			print "<table class=\"table table-dark table-hover\">
     		<thead>
       			<tr>
+      				<th>ID</th>
         			<th>Title</th>
         			<th>Issue</th>
         			<th>Date</th>
@@ -66,6 +73,7 @@
     		while($arr=mysqli_fetch_assoc($res))
     		{
     			echo "<tr>";
+    			echo "<td>".$arr['cid']."</td>";
     			echo "<td>".$arr['subject']."</td>";
     			echo "<td>".$arr['issue']."</td>";
     			echo "<td>".$arr['cdate']."</td>";
@@ -83,7 +91,12 @@
     				echo "<td>".$ar['branch']."</td>";
     			}
     			mysqli_free_result($tmp);
-    			echo "<td>".$arr['status']."</td></tr>";
+    			$status=$arr['status'];
+				if($status === 'Under Process')
+					echo "<td style=\"color:yellow\">".$arr['status']."</td>";
+				elseif($status === 'Issue Resolved')
+					echo "<td style=\"color:lime\">".$arr['status']."</td>";
+				else echo "<td style=\"color:red\">".$arr['status']."</td>";
     		}
     		print "</tbody></table>";
     		mysqli_close($con);

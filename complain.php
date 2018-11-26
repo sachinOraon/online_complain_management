@@ -9,8 +9,8 @@
 		$sub=$_POST["subject"];
 		$com=$_POST["complain"];
 		$reg=$_SESSION['reg'];
-		$status="Under process";
-		$query="insert into complain (reg_no, cdate, issue, subject, status) values ('$reg', '$date', '$com', '$sub', '$status')";
+		$status="Under Process";
+		$query="insert into complain (reg_no, cdate, issue, subject, status) values ('$reg', '$date', \"$com\", \"$sub\", '$status')";
 		$exec=mysqli_query($con, $query);
 		if(mysqli_error($exec))
 			header('location: /cms/db_err.html');
